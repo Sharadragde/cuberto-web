@@ -120,7 +120,7 @@ const App = () => {
         </div>
       </div>
 
-      <div className="fixed bottom-4 right-4 flex items-center justify-center w-52 h-52">
+      <div className="fixed bottom-4 right-4 hidden  lg:flex items-center justify-center w-52 h-52">
         <div
           ref={textRef}
           className="absolute w-full h-full flex items-center justify-center animate-spin-slow"
