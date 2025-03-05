@@ -1,0 +1,5 @@
+/* Custom Selection Styling */
+::selection {
+  background-color: #4a4a4a;
+  color: white;
+}
