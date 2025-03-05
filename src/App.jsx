@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Header from "./components/Header";
 import "remixicon/fonts/remixicon.css";
 import myVidio2 from "../public/assets/vidio/short.mp4";
 import myVidio3 from "../public/assets/vidio/hero.mp4";
 import myVidio4 from "../public/assets/vidio/c-vidio.mp4";
+import myVidio5 from "../public/assets/vidio/vidio-2.mp4";
 import "./App.css";
 import Sidebar from "./components/Sidebar";
 import { motion } from "framer-motion";
@@ -13,6 +14,7 @@ const App = () => {
   const [isHoveringVideo, setIsHoveringVideo] = useState(false);
   const [isHoveringButton, setIsHoveringButton] = useState(false);
   const [isHoverText, setIsHoverText] = useState(false);
+   const textRef = useRef(null);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -22,6 +24,17 @@ const App = () => {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
+
+   useEffect(() => {
+     const text = textRef.current;
+     let degree = 0;
+     const animateText = () => {
+       degree += 1;
+       text.style.transform = `rotate(${degree}deg)`;
+       requestAnimationFrame(animateText);
+     };
+     animateText();
+   }, []);
 
   return (
     <>
@@ -107,7 +120,36 @@ const App = () => {
         </div>
       </div>
 
-      {/* Custom Cursor */}
+      <div className="fixed bottom-4 right-4 flex items-center justify-center w-52 h-52">
+        <div
+          ref={textRef}
+          className="absolute w-full h-full flex items-center justify-center animate-spin-slow"
+        >
+          <svg className="w-full h-full" viewBox="0 0 100 100">
+            <path
+              id="circlePath"
+              d="M50,50 m-35,0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
+              fill="none"
+            />
+            <text fontSize="6" className="fill-gray-600">
+              <textPath href="#circlePath" startOffset="0%">
+                contact - contact - contact - contact -
+              </textPath>
+            </text>
+          </svg>
+        </div>
+
+        <div className="absolute w-24 h-24 rounded-full overflow-hidden bg-transparent shadow-lg">
+          <video
+            src={myVidio5}
+            autoPlay
+            loop
+            muted
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+
       <div
         className={`fixed z-20 top-0 left-0 pointer-events-none transition-all duration-300 ease-out flex items-center justify-center 
     ${
