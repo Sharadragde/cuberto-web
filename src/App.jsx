@@ -32,20 +32,7 @@ const App = () => {
         position={position}
         setIsHoverText={setIsHoverText}
       />
-      {/* <div className="mt-20 mx-28 sm:text-7xl md:text-9xl text-4xl w-3/5 tracking-tighter h-[500px]">
-        We are a digital
-        <span className="inline-block align-middle relative mx-3">
-          <video
-            autoPlay
-            loop
-            muted
-            src={myVidio3}
-            className="rounded-full sm:h-14 md:h-28 h-12 lg:h-30 relative top-1/2 -translate-y-3/2"
-          />
-        </span>
-        <span className="font-light italic">design</span> and motion agency
-      </div> */}
-      <div className="mt-20 mx-28 w-2/3 tracking-tighter h-[600px] overflow-hidden sm:text-7xl md:text-9xl text-4xl">
+      <div className="mt-20 mx-20 md:mx-40 w-2/3 tracking-tighter h-[200px] sm:h-[300px] md:h-[500px] lg:h-[600px] overflow-hidden sm:text-7xl md:text-9xl text-4xl">
         <motion.div
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -98,7 +85,7 @@ const App = () => {
       </div>
 
       {/* section-3  */}
-      <div className="flex items-center justify-center min-h-screen bg-white p-10 gap-32 ml-0 md:ml-48 max-w-full">
+      <div className="flex items-center justify-center min-h-screen bg-white p-10 gap-32 ml-0 sm:ml-32 md:ml-48 max-w-full">
         <div className="w-0 md:w-1/2 lg:w-1/3 flex justify-center">
           <video autoPlay loop muted src={myVidio4}></video>
         </div>
