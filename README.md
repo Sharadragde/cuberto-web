@@ -25,7 +25,7 @@ This project is a clone of the **Cuberto.com** website, where I replicated key s
 **Solution:** Used **CSS keyframes** for animations, allowing text to move up, disappear, and re-enter seamlessly.
 
 ### 🔹 **Sidebar Animation Glitches**
-**Problem:** Sidebar transition was chalenging and not smooth.
+**Problem:** Sidebar transition was Challenging and not smooth.
 **Solution:** Used **Framer Motion** for better control over animation easing and smooth transitions.
 
 ## Technologies Used
