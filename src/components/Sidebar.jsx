@@ -41,7 +41,7 @@ const Sidebar = ({ isOpen, setIsOpen, setIsHoverText }) => {
               ))}
             </ul>
           </div>
-          {/* Menu */}
+
           <div>
             <span className="text-gray-400">Menu</span>
             <ul className="mt-8 space-y-3 lg:text-5xl sm:text-3xl text-2xl font-lg transition-all duration-300 ease-in-out group-hover:animate-moveUp">
@@ -64,7 +64,6 @@ const Sidebar = ({ isOpen, setIsOpen, setIsHoverText }) => {
             </ul>
           </div>
         </div>
-        {/* Footer */}
         <div className="mt-10 flex gap-14 text-lg px-24">
           <div>
             <span className="text-gray-400 text-sm">Get in touch</span>

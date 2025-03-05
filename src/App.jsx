@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
 import Header from "./components/Header";
 import "remixicon/fonts/remixicon.css";
-// import myVidio from "../public/assets/vidio/header.mp4";
 import myVidio2 from "../public/assets/vidio/short.mp4";
 import myVidio3 from "../public/assets/vidio/hero.mp4";
 import myVidio4 from "../public/assets/vidio/c-vidio.mp4";
 import "./App.css";
 import Sidebar from "./components/Sidebar";
-
+import { motion } from "framer-motion";
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHoveringVideo, setIsHoveringVideo] = useState(false);
   const [isHoveringButton, setIsHoveringButton] = useState(false);
-  const [isHoverText, setIsHoverText] = useState(false)
+  const [isHoverText, setIsHoverText] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -23,6 +22,7 @@ const App = () => {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
+
   return (
     <>
       <Header setIsOpen={setIsOpen} />
@@ -32,7 +32,7 @@ const App = () => {
         position={position}
         setIsHoverText={setIsHoverText}
       />
-      <div className="mt-20 mx-28 sm:text-7xl md:text-9xl text-4xl w-3/5 tracking-tighter h-[500px]">
+      {/* <div className="mt-20 mx-28 sm:text-7xl md:text-9xl text-4xl w-3/5 tracking-tighter h-[500px]">
         We are a digital
         <span className="inline-block align-middle relative mx-3">
           <video
@@ -44,6 +44,48 @@ const App = () => {
           />
         </span>
         <span className="font-light italic">design</span> and motion agency
+      </div> */}
+      <div className="mt-20 mx-28 w-2/3 tracking-tighter h-[600px] overflow-hidden sm:text-7xl md:text-9xl text-4xl">
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+        >
+          We are a digital
+        </motion.div>
+
+        <motion.span
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+          className="inline-block align-middle relative mx-3"
+        >
+          <video
+            autoPlay
+            loop
+            muted
+            src={myVidio3}
+            className="rounded-full sm:h-14 md:h-28 h-12 lg:h-30 relative top-1/2 -translate-y-3/2"
+          />
+        </motion.span>
+
+        <motion.span
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+          className="inline-block font-light italic"
+        >
+          design
+        </motion.span>
+
+        <motion.span
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.8 }}
+          className=" ml-4 sm:text-7xl md:text-9xl text-4xl"
+        >
+          and motion agency
+        </motion.span>
       </div>
 
       {/* section-2 vidio */}
@@ -52,7 +94,6 @@ const App = () => {
         onMouseEnter={() => setIsHoveringVideo(true)}
         onMouseLeave={() => setIsHoveringVideo(false)}
       >
-        {" "}
         <video autoPlay loop muted src={myVidio2} className="w-full"></video>
       </div>
 
@@ -79,28 +120,6 @@ const App = () => {
         </div>
       </div>
 
-      {/* section-footer  */}
-
-      {/* Custom Cursor
-      <div
-        className={`fixed z-20 top-0 left-0 pointer-events-none transition-ease-in-out duration-300 ease-out flex items-center justify-center 
-          ${
-            isHoveringVideo
-              ? "w-20 h-20 bg-white rounded-full border"
-              : isHoveringButton
-              ? "w-6 h-6 bg-gray-200 rounded-full"
-              : "w-2 h-2 bg-gray-800 rounded-full"
-          }`}
-        style={{
-          transform: `translate(${
-            position.x - (isHoveringVideo ? 40 : isHoveringButton ? 8 : 4)
-          }px, ${
-            position.y - (isHoveringVideo ? 40 : isHoveringButton ? 8 : 4)
-          }px)`,
-        }}
-      >
-        {isHoveringVideo && <i className="ri-play-large-line text-2xl"></i>}
-      </div> */}
       {/* Custom Cursor */}
       <div
         className={`fixed z-20 top-0 left-0 pointer-events-none transition-all duration-300 ease-out flex items-center justify-center 
@@ -130,4 +149,3 @@ const App = () => {
 };
 
 export default App;
-
